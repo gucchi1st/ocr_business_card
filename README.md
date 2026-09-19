@@ -5,6 +5,7 @@
 ---
 <img width="433" height="318" alt="image" src="https://github.com/user-attachments/assets/75f11603-450d-4e2a-8c42-a1f8f46f2c82" />
 
+<img width="738" height="792" alt="Screenshot 2026-09-19 075117" src="https://github.com/user-attachments/assets/102a494d-8d24-47b9-8cff-860427bb0f56" />
 
 ## 1. Giới thiệu
 
@@ -13,10 +14,15 @@ Business Card OCR được xây dựng nhằm tự động hóa quy trình nhậ
 Thay vì nhập thủ công từng thông tin, người dùng chỉ cần:
 
 1. Upload ảnh danh thiếp.
+<img width="1324" height="867" alt="Screenshot 2026-09-19 080240" src="https://github.com/user-attachments/assets/992001e5-8342-4e88-84c5-52cc85be0d19" />
+
 2. Chạy OCR.
 3. Kiểm tra thông tin được nhận diện.
+<img width="1562" height="833" alt="Screenshot 2026-09-19 080638" src="https://github.com/user-attachments/assets/09cce71b-e3b5-49da-ada6-dfd24c797cc4" />
+
 4. Chỉnh sửa nếu cần.
 5. Lưu dữ liệu vào Google Sheets.
+<img width="1813" height="368" alt="Screenshot 2026-09-19 080713" src="https://github.com/user-attachments/assets/142bda8f-3ed2-43d6-bb58-605368eab121" />
 
 Ứng dụng hỗ trợ:
 
