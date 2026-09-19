@@ -4,11 +4,6 @@
 
 ---
 <img width="433" height="318" alt="image" src="https://github.com/user-attachments/assets/75f11603-450d-4e2a-8c42-a1f8f46f2c82" />
-<img width="369" height="396" alt="image" src="https://github.com/user-attachments/assets/e159070e-6115-4285-ba69-a39550272b0f" />
-<img width="662" height="434" alt="image" src="https://github.com/user-attachments/assets/c3e8f256-658c-48de-abf2-cfab2a70ca7f" />
-<img width="781" height="416" alt="image" src="https://github.com/user-attachments/assets/9ae6bec4-c530-47b5-9419-f481b254fd4e" />
-<img width="907" height="184" alt="image" src="https://github.com/user-attachments/assets/7fe84562-7a0d-42c7-b524-f3edebff0520" />
-
 
 
 ## 1. Giới thiệu
