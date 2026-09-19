@@ -1,0 +1,26 @@
+# Virtual environment
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Environment / secrets
+.env
+*.env
+!.env.example
+
+# Credentials
+service_account.json
+credentials.json
+*.json
+
+# Build
+dist/
+build/
+*.egg-info/
+
+# Uploaded/generated data
+uploads/

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Business Card OCR</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/style.css?v=999"
+    >
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <div>
+            <h1>Business Card OCR</h1>
+            <p>Extract business card information automatically</p>
+        </div>
+
+        <button
+            id="settingsButton"
+            class="settings-button"
+        >
+            Settings
+        </button>
+
+    </header>
+
+
+    <!-- MAIN -->
+    <main>
+
+        <!-- UPLOAD SECTION -->
+        <section class="upload-section">
+
+            <div class="upload-header">
+
+                <div>
+                    <h2>Business Cards</h2>
+                    <p>
+                        Upload one or multiple business cards
+                    </p>
+                </div>
+
+                <div class="mode-container">
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="uploadMode"
+                            value="single"
+                            checked
+                        >
+                        Single side
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="uploadMode"
+                            value="two-sided"
+                        >
+                        Two sides
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- DROPZONE -->
+            <div
+                id="dropZone"
+                class="drop-zone"
+            >
+
+                <div class="upload-icon">
+                    +
+                </div>
+
+                <h3>
+                    Drag & Drop business cards here
+                </h3>
+
+                <p>
+                    or
+                </p>
+
+                <button
+                    id="chooseFilesButton"
+                    class="primary-button"
+                    type="button"
+                >
+                    Choose Images
+                </button>
+
+                <input
+                    id="fileInput"
+                    type="file"
+                    accept="image/*"
+                    multiple
+                    hidden
+                >
+
+                <small>
+                    JPG, JPEG, PNG, WEBP
+                </small>
+
+            </div>
+
+
+            <!-- UPLOAD STATUS -->
+            <div
+                id="uploadStatus"
+                class="status hidden"
+            ></div>
+
+        </section>
+
+
+        <!-- CARDS -->
+        <section
+            id="cardsSection"
+            class="cards-section hidden"
+        >
+
+            <div class="section-title">
+
+                <div>
+                    <h2>Cards</h2>
+                    <span id="cardCount">
+                        0 cards
+                    </span>
+                </div>
+
+                <button
+                    id="clearAllButton"
+                    class="secondary-button"
+                >
+                    Clear All
+                </button>
+
+            </div>
+
+
+            <div
+                id="cardsContainer"
+                class="cards-container"
+            ></div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- SETTINGS OVERLAY -->
+<div
+    id="settingsOverlay"
+    class="overlay hidden"
+>
+
+    <div
+        id="settingsPanel"
+        class="settings-panel"
+    >
+
+        <div class="settings-header">
+
+            <div>
+                <h2>Settings</h2>
+                <p>
+                    Configure Gemini and Google Sheet
+                </p>
+            </div>
+
+            <button
+                id="closeSettingsButton"
+                class="close-button"
+                type="button"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="settings-body">
+
+            <!-- GEMINI -->
+            <div class="setting-group">
+
+                <label for="geminiApiKey">
+                    Gemini API Key
+                </label>
+
+                <div class="input-with-button">
+
+                    <input
+                        id="geminiApiKey"
+                        type="password"
+                        placeholder="Enter Gemini API Key"
+                        autocomplete="off"
+                    >
+
+                    <button
+                        id="toggleApiKey"
+                        type="button"
+                        class="small-button"
+                    >
+                        Show
+                    </button>
+
+                </div>
+
+                <div
+                    id="geminiStatus"
+                    class="setting-status"
+                ></div>
+
+            </div>
+
+
+            <!-- GOOGLE SHEET -->
+            <div class="setting-group">
+
+                <label for="googleSheetUrl">
+                    Google Sheet URL
+                </label>
+
+                <input
+                    id="googleSheetUrl"
+                    type="text"
+                    placeholder="https://docs.google.com/spreadsheets/..."
+                >
+
+            </div>
+
+
+            <!-- CREDENTIAL -->
+            <div class="setting-group">
+
+                <label for="googleCredentialsPath">
+                    Google Credentials Path
+                </label>
+
+                <input
+                    id="googleCredentialsPath"
+                    type="text"
+                    placeholder="credentials/service-account.json"
+                >
+
+                <small>
+                    Usually:
+                    credentials/service-account.json
+                </small>
+
+            </div>
+
+
+            <div
+                id="settingsStatus"
+                class="settings-message"
+            ></div>
+
+        </div>
+
+
+        <div class="settings-footer">
+
+            <button
+                id="closeSettingsButton2"
+                class="secondary-button"
+                type="button"
+            >
+                Cancel
+            </button>
+
+            <button
+                id="saveSettingsButton"
+                class="primary-button"
+                type="button"
+            >
+                Save Settings
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- CARD DETAIL MODAL -->
+<div
+    id="cardModal"
+    class="overlay hidden"
+>
+
+    <div class="card-modal">
+
+        <div class="modal-header">
+
+            <h2 id="modalTitle">
+                Business Card
+            </h2>
+
+            <button
+                id="closeCardModal"
+                class="close-button"
+            >
+                ×
+            </button>
+
+        </div>
+
+        <div
+            id="modalBody"
+            class="modal-body"
+        ></div>
+
+    </div>
+
+</div>
+
+
+<script src="/static/script.js?v=999"></script>
+
+</body>
+</html>
